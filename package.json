@@ -1,0 +1,41 @@
+{
+  "name": "dynupdate-aws",
+  "description": "NodeJS module to update no-ip and submit your AWS instance IP as a dynamic dns update request",
+  "version": "0.0.1",
+  "author": {
+    "name": "Julien Valéry",
+    "email": "darul75@gmail.com"
+  },
+  "homepage": "https://github.com/darul75/dynupdate-aws",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darul75/dynupdate-aws.git"
+  },  
+  "keywords": [
+    "ip",
+    "dns",
+    "no-ip"
+  ],
+  "main": "./lib/dynupdate-aws",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "engines": {
+    "node": ">=0.6.x"
+  },
+  "dependencies": {
+    "aws-sdk": "2.0.0-rc3",
+    "dynupdate": "0.0.6"
+  },
+  "devDependencies": {   
+    "mocha": "",
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest"
+  },
+  "bugs": {
+    "url": "https://github.com/darul75/dynupdate-aws/issues"
+  },
+  "readmeFilename": "README.md",
+  "license": "MIT"
+}
