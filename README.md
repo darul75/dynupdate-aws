@@ -1,6 +1,6 @@
-# Dynupdate [![NPM version](https://badge.fury.io/js/dynupdate.png)](http://badge.fury.io/js/dynupdate) [![Build Status](https://travis-ci.org/darul75/dynupdate.png?branch=master)](https://travis-ci.org/darul75/dynupdate)
+# Dynupdate [![NPM version](https://badge.fury.io/js/dynupdate-aws.png)](http://badge.fury.io/js/dynupdate-aws) [![Build Status](https://travis-ci.org/darul75/dynupdate-aws.png?branch=master)](https://travis-ci.org/darul75/dynupdate-aws)
 
-**Dynupdate** NodeJS module to update no-ip and submit your AWS instance IP as a dynamic dns update request.
+**DynupdateAWS** NodeJS module to update no-ip and submit your AWS instance IP as a dynamic dns update request.
 
 ## Why ?
 
