@@ -1,6 +1,7 @@
+// node AWS module
 var AWS = require('aws-sdk');
+// node dynupdate module
 var dynupdate = require('dynupdate');
-
 
 /* 
  SERVICE MATCH NO-IP WITH AWS
@@ -17,13 +18,13 @@ function DynUpdateAws() {
     if (err)
       console.log(err);
     else
-      console.log('ok' + status);
+      console.log(status);
   });
 }
 
 DynUpdateAws.prototype.init = function() {
   
-  var args = process.argv.splice(2);  
+  var args = process.argv.splice(2);
 
   if (args.length < 6) {
     process.argv = process.argv.concat(args);
@@ -51,8 +52,9 @@ DynUpdateAws.prototype.init = function() {
 
 DynUpdateAws.prototype.daemon = function(options, next) {
   
-  if (!options.accessKeyId || !options.secretAccessKey)
-    return;  
+  if (!options.accessKeyId || !options.secretAccessKey || !options.region || !options.instanceId || !options.auth || !options.hostname) {    
+    return next(new Error("missing parameters: <AWS-accessKeyId> <AWS-secretAccessKey> <AWS-region> <AWS-instanceId> <NO-IP-auth> <NO-IP-hostname>"));
+  }
 
   var this_ = this;
   var timeoutId = setInterval(function () {
@@ -71,7 +73,7 @@ DynUpdateAws.prototype.daemon = function(options, next) {
           var instanceId = val.InstanceId;
           console.log('current instance id ' + instanceId);
           if (instanceId === options.instanceId && val.PublicIpAddress) {
-            console.log('ip is ' + val.PublicIpAddress);
+            console.log('IP is ' + val.PublicIpAddress);
             console.log('----- sending update to no-ip for domain "' + options.hostname + '"');
             options.myip = val.PublicIpAddress;
             dynupdate.dynupdate(options, function(err, status) {
@@ -79,7 +81,9 @@ DynUpdateAws.prototype.daemon = function(options, next) {
               else {
                 console.log('----- job is done');
                 console.log('status ' + status);
+
                 clearInterval(timeoutId);
+                return next(null, 'ok');
               }
             });            
           }            

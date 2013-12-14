@@ -14,7 +14,9 @@
   "keywords": [
     "ip",
     "dns",
-    "no-ip"
+    "no-ip",
+    "aws",
+    "ec2"
   ],
   "main": "./lib/dynupdate-aws",
   "scripts": {
@@ -25,7 +27,7 @@
   },
   "dependencies": {
     "aws-sdk": "2.0.0-rc3",
-    "dynupdate": "0.0.6"
+    "dynupdate": "0.0.7"
   },
   "devDependencies": {   
     "mocha": "",
