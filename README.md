@@ -6,11 +6,11 @@
 
 Because ecchymose in the nose. IP may change my friend and DNS has to be updated.
 
-At aws instance boot, you might want to send IP update to your no-ip DNS.
+At AWS instance boot, you might want to send IP update to your no-ip DNS.
 
-It works as a daemon and will trigger and DNS update when AWS IP instance is known.
+It works as a daemon and will trigger an DNS update when AWS IP instance is known.
 
-Timer is about every 5 seconds check, when job is done timer will stop automatically.
+Timer checks aws instance status about every 5 seconds, when public IP is provided, event is triggered and update request sent to no-ip.
 
 ## Install
 
@@ -29,25 +29,35 @@ node dynupdate-aws.js user:password domain.no-ip.biz 0.0.0.0
 ```javascript
 var dynupdateAws = require('dynupdateAws');
 
-dynupdateAws.dynupdate({hostname: 'coucou.no-ip.biz', auth:'user:password', myip: '0.0.0.0'}, function(err, status) {
+dynupdateAws.daemon(
+  {
+    accessKeyId: '', 
+    secretAccessKey:'', 
+    region: '', 
+    instanceId: '',
+    auth: '',
+    hostname:''
+  }, 
+  function(err, status) {
   // process err
   
-  
-});
+  }
+);
 ```
 
 ## Options
 
-* `hostname` no-ip domain 
-* `auth` user:password ( email / mdp )
-* `myip` new target IP
-* `offline` YES or NO, string, set offline status
+* `accessKeyId` AWS accessKeyId
+* `secretAccessKey` AWS secretAccessKey
+* `region` AWS region
+* `instanceId` AWS instance id
+* `auth` NO-IP user:password ( email / mdp )
+* `hostname` NO-IP hostname
         
 ## Return    
 
 ### status
-* `good` IP_ADDRESS Success DNS hostname update successful. Followed by a space and the IP address it was updated to.
-* `nochg` IP_ADDRESS  Success IP address is current, no update performed. Followed by a space and the IP address that it is currently set to.
+* `ok` job is done
 
 ### err
 * `nohost`  Error Hostname supplied does not exist under specified account, client exit and require user to enter new login credentials before performing and additional request.
