@@ -81,7 +81,6 @@ DynUpdateAws.prototype.daemon = function(options, next) {
               else {
                 console.log('----- job is done');
                 console.log('status ' + status);
-
                 clearInterval(timeoutId);
                 return next(null, 'ok');
               }

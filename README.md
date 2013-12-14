@@ -12,6 +12,8 @@ It works as a daemon and will trigger an DNS update when AWS IP instance is know
 
 Timer checks aws instance status about every 5 seconds, when public IP is provided, event is triggered and update request sent to no-ip.
 
+Combined with https://github.com/chovy/node-startup on your aws instance, can be a great deal to avoid elastic IP.
+
 ## Install
 
 ~~~

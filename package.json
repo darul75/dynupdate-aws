@@ -1,7 +1,7 @@
 {
   "name": "dynupdate-aws",
   "description": "NodeJS module to update no-ip and submit your AWS instance IP as a dynamic dns update request",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Julien Valéry",
     "email": "darul75@gmail.com"
