@@ -22,7 +22,7 @@ npm install dynupdate-aws
 
 ### Command line
 ```
-node dynupdate-aws.js user:password domain.no-ip.biz 0.0.0.0
+node dynupdate-aws.js <AWS-accessKeyId> <AWS-secretAccessKey> <AWS-region> <AWS-instanceId> <NO-IP-auth> <NO-IP-hostname>
 ```
 
 ### Application
