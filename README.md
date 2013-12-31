@@ -29,7 +29,7 @@ node dynupdate-aws.js <AWS-accessKeyId> <AWS-secretAccessKey> <AWS-region> <AWS-
 
 ### Application
 ```javascript
-var dynupdateAws = require('dynupdateAws');
+var dynupdateAws = require('dynupdate-aws');
 
 dynupdateAws.daemon(
   {
