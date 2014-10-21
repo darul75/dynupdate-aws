@@ -70,6 +70,10 @@ dynupdateAws.daemon(
 * `911` Error A fatal error on our side such as a database outage. Retry the update no sooner 30 minutes.
 ~~~
 
+## Metrics
+
+[![NPM](https://nodei.co/npm/dynupdate-aws.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/dynupdate-aws/)
+
 ## License
 
 The MIT License (MIT)
